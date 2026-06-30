@@ -1,0 +1,126 @@
+<svg viewBox="0 0 520 620" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Stylized portrait of an elder mathematician — wild white hair, mustache and round glasses — before a faint chalk graph.">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#16202c"/>
+      <stop offset="62%" stop-color="#0f141c"/>
+      <stop offset="100%" stop-color="#0b0e13"/>
+    </radialGradient>
+    <radialGradient id="halo" cx="50%" cy="42%" r="48%">
+      <stop offset="0%" stop-color="#7CE3B0" stop-opacity=".26"/>
+      <stop offset="55%" stop-color="#5db0ff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#5db0ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e6bd95"/>
+      <stop offset="100%" stop-color="#cd9f76"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#222633"/>
+      <stop offset="100%" stop-color="#15181f"/>
+    </linearGradient>
+    <style>
+      .hair{fill:#eef2f7} .hairsh{fill:#cdd6e2}
+      .chalk{stroke:#8fa0b4;fill:none;stroke-width:1.1;opacity:.34}
+      .chalkn{fill:#0f141c;stroke:#8fa0b4;stroke-width:1.1;opacity:.4}
+      .sym{fill:#aeb8c6;font-family:Georgia,serif;font-style:italic;opacity:.4}
+      .frame{fill:none;stroke:#262b35;stroke-width:1.4}
+    </style>
+  </defs>
+
+  <!-- frame + ground -->
+  <rect x="0" y="0" width="520" height="620" rx="16" fill="url(#bg)"/>
+  <rect x="8" y="8" width="504" height="604" rx="12" class="frame"/>
+
+  <!-- faint chalk graph behind -->
+  <g class="chalk">
+    <line x1="70" y1="120" x2="160" y2="86"/>
+    <line x1="160" y1="86" x2="120" y2="210"/>
+    <line x1="360" y1="96" x2="450" y2="150"/>
+    <line x1="450" y1="150" x2="410" y2="250"/>
+    <line x1="360" y1="96" x2="430" y2="70"/>
+  </g>
+  <g class="chalkn">
+    <circle cx="160" cy="86" r="7"/><circle cx="120" cy="210" r="7"/>
+    <circle cx="450" cy="150" r="7"/><circle cx="410" cy="250" r="7"/>
+    <circle cx="360" cy="96" r="7"/>
+  </g>
+  <text x="78" y="96" class="sym" font-size="22">&#8712;</text>
+  <text x="404" y="86" class="sym" font-size="18">H&#8304;</text>
+
+  <!-- halo -->
+  <ellipse cx="260" cy="262" rx="210" ry="210" fill="url(#halo)"/>
+
+  <!-- shoulders / coat -->
+  <path d="M40 620 Q60 452 175 420 Q230 470 290 470 Q350 470 348 420 Q460 452 480 620 Z" fill="url(#coat)"/>
+  <!-- turtleneck -->
+  <path d="M196 432 Q260 486 324 432 L330 470 Q260 512 190 470 Z" fill="#2b3140"/>
+  <!-- lapel hints -->
+  <path d="M236 452 L210 560 L250 470 Z" fill="#2a2f3c" opacity=".8"/>
+  <path d="M284 452 L310 560 L270 470 Z" fill="#2a2f3c" opacity=".8"/>
+
+  <!-- ===== back/side hair (behind head): the Einstein flares ===== -->
+  <g>
+    <ellipse class="hairsh" cx="150" cy="262" rx="60" ry="86"/>
+    <ellipse class="hairsh" cx="372" cy="262" rx="60" ry="86"/>
+    <ellipse class="hair"  cx="146" cy="252" rx="52" ry="78"/>
+    <ellipse class="hair"  cx="376" cy="252" rx="52" ry="78"/>
+    <!-- top wisps, leaving the forehead bare -->
+    <path class="hair" d="M176 196 Q150 150 200 168 Q210 184 196 200 Z"/>
+    <path class="hair" d="M344 196 Q372 150 322 168 Q312 184 326 200 Z"/>
+    <!-- flyaway strands -->
+    <path class="chalk" style="opacity:.5;stroke:#dde4ee;stroke-width:1.6" d="M104 214 Q78 196 70 168"/>
+    <path class="chalk" style="opacity:.5;stroke:#dde4ee;stroke-width:1.6" d="M112 300 Q86 312 78 340"/>
+    <path class="chalk" style="opacity:.5;stroke:#dde4ee;stroke-width:1.6" d="M418 214 Q444 196 452 168"/>
+    <path class="chalk" style="opacity:.5;stroke:#dde4ee;stroke-width:1.6" d="M410 300 Q436 312 444 340"/>
+  </g>
+
+  <!-- ears -->
+  <ellipse cx="176" cy="282" rx="13" ry="20" fill="url(#skin)"/>
+  <ellipse cx="344" cy="282" rx="13" ry="20" fill="url(#skin)"/>
+
+  <!-- neck -->
+  <path d="M228 352 L228 432 Q260 452 292 432 L292 352 Z" fill="url(#skin)"/>
+  <path d="M228 352 L292 352 L292 372 Q260 388 228 372 Z" fill="#bd8f68" opacity=".55"/>
+
+  <!-- head -->
+  <ellipse cx="260" cy="262" rx="92" ry="108" fill="url(#skin)"/>
+  <!-- jaw / temple shading -->
+  <path d="M180 250 Q176 330 232 370 Q200 330 196 252 Z" fill="#c2966e" opacity=".5"/>
+  <path d="M340 250 Q344 330 288 370 Q320 330 324 252 Z" fill="#c2966e" opacity=".5"/>
+
+  <!-- forehead wrinkles (age) -->
+  <path d="M214 206 Q260 196 306 206" stroke="#c0925f" fill="none" stroke-width="1.4" opacity=".5"/>
+  <path d="M210 220 Q260 210 310 220" stroke="#c0925f" fill="none" stroke-width="1.4" opacity=".45"/>
+
+  <!-- bushy white brows -->
+  <path class="hair" d="M198 250 Q224 234 252 246 Q226 248 200 258 Z"/>
+  <path class="hair" d="M322 250 Q296 234 268 246 Q294 248 320 258 Z"/>
+
+  <!-- round glasses -->
+  <g stroke="#9fb0c2" stroke-width="2.4" fill="none">
+    <circle cx="224" cy="272" r="27"/>
+    <circle cx="296" cy="272" r="27"/>
+    <path d="M251 270 Q260 264 269 270"/>
+    <path d="M197 268 L176 274"/>
+    <path d="M323 268 L344 274"/>
+  </g>
+  <!-- eyes -->
+  <ellipse cx="224" cy="274" rx="6.5" ry="7.5" fill="#2c3340"/>
+  <ellipse cx="296" cy="274" rx="6.5" ry="7.5" fill="#2c3340"/>
+  <circle cx="226" cy="271" r="1.8" fill="#dfe6ef"/>
+  <circle cx="298" cy="271" r="1.8" fill="#dfe6ef"/>
+
+  <!-- nose -->
+  <path d="M258 280 Q250 312 240 320 Q258 332 276 320 Q270 312 262 280 Z" fill="#cf9d71" opacity=".75"/>
+
+  <!-- walrus mustache -->
+  <path class="hairsh" d="M206 332 Q260 320 314 332 Q314 360 282 356 Q260 346 238 356 Q206 360 206 332 Z"/>
+  <path class="hair"   d="M210 330 Q260 320 310 330 Q308 352 282 350 Q260 342 238 350 Q212 352 210 330 Z"/>
+
+  <!-- subtle mouth under mustache -->
+  <path d="M236 360 Q260 370 284 360" stroke="#a87b56" stroke-width="2" fill="none" opacity=".7"/>
+
+  <!-- soft top edge frame highlight -->
+  <rect x="8" y="8" width="504" height="604" rx="12" class="frame" opacity=".6"/>
+</svg>

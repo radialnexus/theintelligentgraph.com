@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Intelligent Graph — what exists, made executable</title>
+<meta name="description" content="Begin with being: to exist is to be an element of a set. The Intelligent Graph grounds that philosophy in mathematics — a cellular sheaf over a property graph — and makes it run.">
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --panel2:#1c2029; --ink:#e8eaed; --mut:#9aa3b2;
+    --acc:#5db0ff; --acc2:#7CE3B0; --warn:#ffcf6b; --line:#262b35; --maxw:980px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:
+        radial-gradient(1200px 600px at 78% -10%, #16263a 0%, transparent 58%),
+        radial-gradient(900px 500px at 10% 8%, #14222e 0%, transparent 55%), var(--bg);
+       color:var(--ink);font:17px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
+      background:rgba(15,17,21,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:58px}
+  nav .brand{font-weight:700;font-size:15px;letter-spacing:.2px} nav .brand b{color:var(--acc2)}
+  nav .links{margin-left:auto;display:flex;gap:20px;font-size:14px}
+  nav .links a{color:var(--mut)} nav .links a:hover{color:var(--ink);text-decoration:none}
+
+  header.hero{padding:80px 0 60px}
+  .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  @media(max-width:820px){.hero .grid{grid-template-columns:1fr;gap:30px}}
+  .eyebrow{color:var(--acc2);font-size:12.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+  h1{font-size:clamp(40px,7vw,68px);line-height:1;margin:16px 0 0;letter-spacing:-1px;font-weight:850}
+  .lede{font-size:19px;color:#c7cdd8;max-width:560px;margin:22px 0 0}
+  .lede b{color:var(--ink)}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+  .btn{display:inline-block;padding:13px 22px;border-radius:10px;font-weight:650;font-size:15px;border:1px solid transparent}
+  .btn.primary{background:linear-gradient(180deg,#6bb6ff,#4a9eef);color:#08111c;border-color:#4a9eef}
+  .btn.ghost{border-color:var(--line);color:var(--ink);background:var(--panel)}
+  .btn:hover{text-decoration:none;filter:brightness(1.07)}
+  .figure{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0c0f15;
+          box-shadow:0 20px 60px -30px #000}
+  .figure img{display:block;width:100%;height:auto}
+  .figure figcaption{font-size:12.5px;color:var(--mut);padding:10px 14px;border-top:1px solid var(--line);
+          background:var(--panel)}
+
+  section{padding:54px 0;border-top:1px solid var(--line)}
+  .kicker{color:var(--acc2);font-size:12px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;margin:0}
+  h2{font-size:clamp(24px,3.4vw,33px);margin:10px 0 0;letter-spacing:-.3px;font-weight:750}
+  section p{color:#c4cad5;max-width:760px}
+  .big-quote{font-size:clamp(22px,3.2vw,30px);font-weight:750;color:var(--ink);letter-spacing:-.3px;
+          margin:8px 0 0;max-width:780px}
+  .big-quote em{color:var(--acc2);font-style:normal}
+  .grid3{display:grid;gap:16px;margin-top:26px;grid-template-columns:repeat(3,1fr)}
+  @media(max-width:760px){.grid3{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
+        border-radius:14px;padding:20px}
+  .card h3{margin:0 0 6px;font-size:17px} .card h3 .n{color:var(--acc);font-weight:800;margin-right:8px}
+  .card p{font-size:14.5px;color:var(--mut);margin:0;max-width:none}
+  .callout{background:#13243a;border:1px solid #2c4a6e;border-left:3px solid var(--acc);
+           border-radius:12px;padding:18px 20px;margin-top:26px;font-size:16px}
+  .callout b{color:var(--ink)}
+  .ladder{margin-top:24px}
+  .rung{display:flex;gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .rung:last-child{border-bottom:0}
+  .rung .o{min-width:96px;color:var(--acc);font-weight:800;font-size:14px;letter-spacing:.3px}
+  .rung .d{color:var(--mut);font-size:15px} .rung .d b{color:var(--ink)}
+  .vision{background:linear-gradient(180deg,#1a1726,#161320);border:1px solid #2f2a45;border-radius:14px;padding:24px 26px;margin-top:26px}
+  .vision .tag{color:#c4b6ff;font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700}
+  .vision p{color:#cfc7e6} .vision .note{color:#9d93c4;font-style:italic;font-size:14px;margin-top:12px}
+  .feat{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}
+  .feat:last-child{border-bottom:0}
+  .feat .lbl{min-width:190px;font-weight:700;color:var(--ink)} .feat .txt{color:var(--mut);font-size:15px}
+  @media(max-width:680px){.feat{flex-direction:column;gap:4px}.feat .lbl{min-width:0}.rung{flex-direction:column;gap:2px}}
+  footer{border-top:1px solid var(--line);padding:40px 0 70px;color:var(--mut);font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">The <b>Intelligent</b> Graph</div>
+  <div class="links">
+    <a href="#being">Philosophy</a>
+    <a href="#math">Mathematics</a>
+    <a href="#does">What it does</a>
+    <a href="thesis.html">Thesis</a>
+    <a href="../radialnexus/">RadialNexus ↗</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="grid">
+    <div>
+      <div class="eyebrow">Ontology · the study of what exists</div>
+      <h1>What exists?</h1>
+      <p class="lede">The oldest question in philosophy has a precise answer on a graph:
+        <b>to exist is to be an element of a set.</b> Build on that — ground it in mathematics —
+        and a graph stops <i>describing</i> the world and starts <b>reasoning about it.</b></p>
+      <div class="cta">
+        <a class="btn primary" href="thesis.html">Read the thesis</a>
+        <a class="btn ghost" href="#does">See what it does</a>
+      </div>
+    </div>
+    <figure class="figure">
+      <!-- swap this src for a rendered raster portrait later; SVG is the live placeholder -->
+      <img src="img/mathematician.svg" alt="Stylized portrait of an elder mathematician before a faint chalk graph.">
+      <figcaption>Forty years on one conviction: <i>relationships come first.</i></figcaption>
+    </figure>
+  </div>
+</div></header>
+
+<!-- ===================== PHILOSOPHY ===================== -->
+<section id="being"><div class="wrap">
+  <p class="kicker">Begin with being</p>
+  <h2>Existence is membership. Relations are real.</h2>
+  <p class="big-quote">To exist is to be an <em>element of a set</em>.</p>
+  <p style="margin-top:18px">A thing <i>is</i> if it belongs; <i>what kind</i> of thing it is,
+    is <i>which sets</i> it belongs to. Sort those memberships and you have a <b>taxonomy</b> —
+    the categorization of existence, universals and particulars, types and instances. This is
+    what the graph world means by an <i>ontology.</i></p>
+  <p>And the categories of being have always included one the dominant standards forgot:
+    <b>relation.</b> A relationship is not glue between two real things — it is <i>itself</i> a
+    real thing. So we make relationships <b>first-class</b> — nodes in their own right, carrying
+    their own data. <span style="color:var(--acc2)">Reticulation, not reification.</span></p>
+</div></section>
+
+<!-- ===================== MATHEMATICS ===================== -->
+<section id="math"><div class="wrap">
+  <p class="kicker">Vector to the mathematics</p>
+  <h2>From philosophy to a sheaf.</h2>
+  <p>Inference — derive what follows from what's said — is only the first floor. An operation's
+    <i>order</i> is the order of structure it reaches over:</p>
+  <div class="ladder">
+    <div class="rung"><div class="o">order 1 · Infer</div>
+      <div class="d">reaches over <b>elements</b> — <i>what follows.</i></div></div>
+    <div class="rung"><div class="o">order 2 · Compute</div>
+      <div class="d">reaches over the <b>whole topology</b> — <i>what the structure reveals.</i>
+        Centrality, community, similarity: the graph reasons about <i>itself.</i></div></div>
+    <div class="rung"><div class="o">order 3 · Reticulate</div>
+      <div class="d">reaches over whole <b>spaces</b> — <i>what relates across worlds.</i></div></div>
+    <div class="rung"><div class="o">order ω · Interact</div>
+      <div class="d">reaches over <b>universes and the intelligences reading them</b> —
+        <i>what emerges in conversation.</i></div></div>
+  </div>
+  <div class="vision">
+    <div class="tag">The object that makes this rigorous</div>
+    <p style="margin-top:8px;font-size:18px">Model the graph as a <b>cellular sheaf</b>: data on
+      every node <i>and edge</i>, with rules for how they must agree. A <i>view</i> becomes a
+      <i>section</i>; consistency becomes <b>cohomology</b> — <b>H⁰</b> is what holds together
+      (knowledge), <b>H¹</b> is the contradiction that can't (the obstruction). <b>Grounding is
+      driving H¹ toward zero.</b></p>
+    <p class="note">The full consistency engine is the direction, not a shipped feature — we
+      build toward it in the open. <a href="thesis.html#cohomology" style="color:#c4b6ff">Read the math →</a></p>
+  </div>
+  <figure class="figure" style="margin-top:26px">
+    <img src="img/hero-sheaf.svg" alt="A graph whose nodes and edges carry fibers, with H⁰ and H¹ chalked — a cellular sheaf.">
+    <figcaption>A <i>view</i> becomes a <i>section</i>; consistency becomes <i>cohomology</i> — H⁰ what holds, H¹ what doesn't.</figcaption>
+  </figure>
+</div></section>
+
+<!-- ===================== PRODUCT: THE PROBLEM ===================== -->
+<section id="problem"><div class="wrap">
+  <p class="kicker">What this lets us build</p>
+  <h2>The graph your extractor throws away.</h2>
+  <p>Your LLM pipeline extracts a rich graph of concepts and how they relate — then your tools
+    show almost none of it. A renderer only draws an edge when <b>both</b> endpoints are nodes,
+    so the conceptual half — the ideas and how they connect — is never rendered, never
+    traversed, never queried. The Intelligent Graph recovers that discarded layer as a
+    non-destructive overlay, grounds it, and lets you act on it.</p>
+  <div class="callout">
+    <b>Run this on your own graph:</b> count the edges whose endpoint isn't a node.
+    That number is the graph you're throwing away. In our pilot, it was
+    <b>the large majority of the relationship layer.</b>
+  </div>
+</div></section>
+
+<section id="does"><div class="wrap">
+  <p class="kicker">What it does</p>
+  <h2>Recover, ground, and act.</h2>
+  <div class="grid3">
+    <div class="card"><h3><span class="n">01</span>Recover</h3>
+      <p>Read the source read-only; surface the relationships it extracted but couldn't display.</p></div>
+    <div class="card"><h3><span class="n">02</span>Ground</h3>
+      <p>Type each raw relationship into a traversable graph — keeping the original string, so
+        re-typing later is a single traversal, not a re-import.</p></div>
+    <div class="card"><h3><span class="n">03</span>Act</h3>
+      <p>Hitting a relationship can <i>do</i> something, not just return a row. The graph stops
+        being a place you store knowledge and becomes one that <b>runs.</b></p></div>
+  </div>
+  <p style="margin-top:22px">Provenance is a property, not a supernode. Every step is reversible
+    by construction. We attach to your graph; we never restructure it.</p>
+</div></section>
+
+<section id="different"><div class="wrap">
+  <p class="kicker">Why it's different</p>
+  <h2>From a model to an engine.</h2>
+  <div style="margin-top:22px">
+    <div class="feat"><div class="lbl">Relationships first</div>
+      <div class="txt">Edges carry their own structure and behavior — no reification, no
+        blank-node workarounds. The thing the semantic web couldn't do cleanly, done natively.</div></div>
+    <div class="feat"><div class="lbl">Executable traversal</div>
+      <div class="txt">Behavior binds to the <i>kind</i> of relationship you traverse.
+        Inference becomes one behavior, not the whole paradigm.</div></div>
+    <div class="feat"><div class="lbl">Memory</div>
+      <div class="txt">TIG remembers structure <i>and decisions</i> across runs. A re-import shows
+        you only what's new — the dimension a graph re-derived from scratch each day can't have.</div></div>
+    <div class="feat"><div class="lbl">Reticulation</div>
+      <div class="txt">A two-way weave: TIG curates, then feeds interpretations back so the
+        source's agents get smarter each cycle.</div></div>
+  </div>
+</div></section>
+
+<section id="solstone"><div class="wrap">
+  <p class="kicker">TIG + Solstone</p>
+  <h2>Capture-to-graph, in a single self-contained stack.</h2>
+  <p>The Intelligent Graph pairs with <b>Solstone</b> — Jeremie Miller's local-first memory
+    platform — to turn a passive capture stream into a structured, queryable, annotatable graph.
+    Sol captures and extracts; TIG recovers the discarded relationship layer, makes it
+    traversable, and feeds curated interpretations back. Built for teams who want their own
+    graph, on their own machine — not a hyperscale deployment.</p>
+</div></section>
+
+<section id="open"><div class="wrap">
+  <p class="kicker">Open core</p>
+  <h2>Build on the open graph; upgrade when you need the layer that acts.</h2>
+  <p>The core is open source (Apache&nbsp;2.0). A commercial layer adds the operational and
+    agentic capabilities teams pay for.</p>
+  <div class="cta">
+    <!-- build-note: GitHub CTA goes live when the open repo is published -->
+    <a class="btn primary" href="https://github.com/radialnexus" target="_blank">★ Star on GitHub</a>
+    <a class="btn ghost" href="../radialnexus/#contact">Talk to us</a>
+  </div>
+</div></section>
+
+<section id="who"><div class="wrap">
+  <p class="kicker">Who's behind it</p>
+  <h2>One unbroken conviction: relationships come first.</h2>
+  <p>Built by <b>Michael Bauer</b> — a 35-year through-line from rule-based expert systems to a
+    billion-node production graph. → <a href="https://michaelbauer.com" target="_blank">michaelbauer.com</a></p>
+  <p>Featured at <b>Neo4j NODES 2026</b>, with Solstone: <i>"The Graph Your Extractor Throws Away."</i></p>
+</div></section>
+
+<footer><div class="wrap">
+  <div>© 2026 RadialNexus LLC · <span class="mono">theintelligentgraph.com</span></div>
+  <div><a href="thesis.html">Thesis</a> · <a href="../radialnexus/">RadialNexus</a> · <a href="mailto:me@michaelbauer.com">me@michaelbauer.com</a></div>
+</div></footer>
+
+</body>
+</html>

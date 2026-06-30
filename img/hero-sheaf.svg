@@ -1,0 +1,93 @@
+<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="A chalkboard sketch of a graph whose nodes and edges carry fibers — a cellular sheaf.">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="36%" r="62%">
+      <stop offset="0%" stop-color="#16263a"/>
+      <stop offset="60%" stop-color="#0f141c"/>
+      <stop offset="100%" stop-color="#0c0f15"/>
+    </radialGradient>
+    <style>
+      .chalk{stroke:#e8eef5;fill:none;stroke-width:1.6;stroke-linecap:round;opacity:.92}
+      .thin{stroke:#aeb8c6;fill:none;stroke-width:1;opacity:.6}
+      .node{fill:#0f141c;stroke:#7CE3B0;stroke-width:2}
+      .nodeB{fill:#0f141c;stroke:#5db0ff;stroke-width:2}
+      .rel{fill:#0f141c;stroke:#ffcf6b;stroke-width:2}
+      .lab{fill:#cdd6e2;font-family:Georgia,serif;font-style:italic}
+      .sym{fill:#e8eef5;font-family:Georgia,serif;font-style:italic}
+      .acc{fill:#7CE3B0} .accb{fill:#5db0ff} .accy{fill:#ffcf6b}
+      .faint{fill:#8b97a8;font-family:Georgia,serif;font-style:italic;opacity:.75}
+    </style>
+  </defs>
+
+  <rect width="900" height="580" fill="url(#glow)"/>
+  <rect x="14" y="14" width="872" height="552" rx="10" class="thin"/>
+
+  <!-- ===== base graph: edges ===== -->
+  <g>
+    <line class="chalk" x1="210" y1="180" x2="430" y2="140"/>
+    <line class="chalk" x1="430" y1="140" x2="640" y2="210"/>
+    <line class="chalk" x1="210" y1="180" x2="300" y2="370"/>
+    <line class="chalk" x1="300" y1="370" x2="540" y2="400"/>
+    <line class="chalk" x1="640" y1="210" x2="540" y2="400"/>
+    <line class="chalk" x1="430" y1="140" x2="300" y2="370"/>
+  </g>
+
+  <!-- ===== fibers (stalks) floating above two nodes ===== -->
+  <g class="thin">
+    <line x1="210" y1="180" x2="150" y2="92"/>
+    <circle cx="150" cy="92" r="30" stroke="#7CE3B0" opacity=".5"/>
+    <circle cx="138" cy="84" r="3" class="acc" stroke="none"/>
+    <circle cx="160" cy="80" r="3" class="acc" stroke="none"/>
+    <circle cx="152" cy="104" r="3" class="acc" stroke="none"/>
+    <line x1="138" y1="84" x2="160" y2="80" stroke="#7CE3B0" opacity=".55"/>
+    <line x1="160" y1="80" x2="152" y2="104" stroke="#7CE3B0" opacity=".55"/>
+  </g>
+  <g class="thin">
+    <line x1="640" y1="210" x2="715" y2="128"/>
+    <circle cx="715" cy="128" r="30" stroke="#5db0ff" opacity=".5"/>
+    <circle cx="703" cy="120" r="3" class="accb" stroke="none"/>
+    <circle cx="727" cy="124" r="3" class="accb" stroke="none"/>
+    <circle cx="714" cy="142" r="3" class="accb" stroke="none"/>
+    <line x1="703" y1="120" x2="727" y2="124" stroke="#5db0ff" opacity=".55"/>
+    <line x1="727" y1="124" x2="714" y2="142" stroke="#5db0ff" opacity=".55"/>
+  </g>
+
+  <!-- ===== the relationship-as-node carrying a fiber (the differentiator) ===== -->
+  <g>
+    <rect x="455" y="258" width="30" height="30" transform="rotate(45 470 273)" class="rel"/>
+    <line class="thin" x1="470" y1="273" x2="470" y2="210"/>
+    <circle cx="470" cy="188" r="26" stroke="#ffcf6b" opacity=".5" fill="none"/>
+    <circle cx="460" cy="182" r="2.6" class="accy" stroke="none"/>
+    <circle cx="480" cy="184" r="2.6" class="accy" stroke="none"/>
+    <circle cx="470" cy="200" r="2.6" class="accy" stroke="none"/>
+    <text x="470" y="312" text-anchor="middle" class="faint" font-size="13">relationship · a node with a fiber</text>
+  </g>
+
+  <!-- ===== base nodes ===== -->
+  <circle class="node"  cx="210" cy="180" r="13"/>
+  <circle class="node"  cx="430" cy="140" r="13"/>
+  <circle class="nodeB" cx="640" cy="210" r="13"/>
+  <circle class="nodeB" cx="300" cy="370" r="13"/>
+  <circle class="node"  cx="540" cy="400" r="13"/>
+
+  <!-- ===== chalk symbols ===== -->
+  <text x="246" y="158" class="sym" font-size="22">∈</text>
+  <text x="120" y="150" class="lab" font-size="15">stalk</text>
+  <text x="690" y="186" class="lab" font-size="15">stalk</text>
+
+  <!-- cohomology annotations -->
+  <text x="300" y="470" class="sym" font-size="20">H⁰</text>
+  <text x="300" y="492" class="faint" font-size="12.5">consistent — what holds together</text>
+  <text x="560" y="470" class="sym" font-size="20" fill="#ffb4b4">H¹</text>
+  <text x="560" y="492" class="faint" font-size="12.5">obstruction — the contradiction</text>
+
+  <!-- the sheaf glyph -->
+  <text x="812" y="300" text-anchor="middle" class="sym" font-size="40" opacity=".9">𝒪</text>
+  <text x="812" y="322" text-anchor="middle" class="faint" font-size="12">the sheaf</text>
+
+  <!-- ===== the Declaration, chalked at the base ===== -->
+  <line class="thin" x1="60" y1="522" x2="840" y2="522"/>
+  <text x="450" y="552" text-anchor="middle" class="lab" font-size="16.5">
+    “a cellular sheaf over a graph — whose sections are its views, whose consistency is cohomology.”
+  </text>
+</svg>
